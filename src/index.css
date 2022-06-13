@@ -5,7 +5,31 @@
 }
 
 html {
-  /* 62.5% of 16px browser font size is 10px */
   font-size: 62.5%;
   font-family: "Karla", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fb;
+}
+
+h1 {
+  color: #293264;
+  text-align: center;
+  padding: 2rem;
+}
+
+button {
+  background-color: #4d5b9e;
+  color: #f5f7fb;
+  width: 19rem;
+  height: 5rem;
+  border: none;
+  border-radius: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
 }
