@@ -33,3 +33,43 @@ button {
   font-family: "Inter", sans-serif;
   font-size: 1.6rem;
 }
+
+.answer {
+  /* max-width: 100%; */
+  /* width: 50%; */
+  /* height: 3rem; */
+  /* display: contents; */
+  border-radius: 8px;
+  border: 1px solid #293264;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  align-self: flex-start;
+  justify-self: start;
+}
+
+.quiz {
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(4, auto);
+  gap: 1rem;
+}
+
+h2 {
+  grid-column: 1 / span 4;
+  grid-row: 1/1;
+  font-size: 1.6rem;
+}
+
+hr {
+  grid-column: 1 / -1;
+  grid-row: 3/4;
+  color: #dbdef0;
+  /* border-top: 2rem; */
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
