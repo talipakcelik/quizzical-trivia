@@ -27,6 +27,22 @@ export default function App() {
 
   function toggle(id) {
     console.log(id);
+
+    setQuiz((oldState) =>
+      oldState.map((el) => {
+        return {
+          ...el,
+          answers: el.answers.map((el2) => {
+            return el2.id === id
+              ? {
+                  ...el2,
+                  isSelected: !el2.isSelected,
+                }
+              : el2;
+          }),
+        };
+      })
+    );
   }
 
   if (typeof quiz === "object") {
@@ -34,6 +50,8 @@ export default function App() {
       <Quiz key={index} questions={item} tog={toggle} />
     ));
   }
+
+  console.log(quiz);
 
   return (
     <main>
