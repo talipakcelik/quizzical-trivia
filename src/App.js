@@ -47,7 +47,12 @@ export default function App() {
 
   if (typeof quiz === "object") {
     quizElements = quiz.map((item, index) => (
-      <Quiz key={index} questions={item} tog={toggle} />
+      <Quiz
+        key={index}
+        answers={item.answers}
+        questions={item.question}
+        tog={toggle}
+      />
     ));
   }
 
