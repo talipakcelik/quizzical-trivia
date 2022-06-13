@@ -1,24 +1,30 @@
 import React from "react";
 
 export default function Quiz(props) {
-  console.log(props.questions);
+  // let qArray = [...props.questions.incorrect_answers];
 
-  const [answers, setAnswers] = React.useState();
-  const random = Math.floor(Math.random() * 4) + 0;
+  // const [answers, setAnswers] = React.useState(qArray);
+  // const random = Math.floor(Math.random() * 4) + 0;
 
-  let qArray = [...props.questions.incorrect_answers];
+  // qArray.splice(random, 0, props.questions.correct_answer);
 
-  qArray.splice(random, 0, props.questions.correct_answer);
+  console.log(props);
 
-  console.log(random);
-  console.log(qArray);
   return (
     <div>
       <h2>{props.questions.question}</h2>
-      <button>{qArray[0]}</button>
-      <button>{qArray[1]}</button>
-      <button>{qArray[2]}</button>
-      <button>{qArray[3]}</button>
+      <button onClick={() => props.tog(props.questions.answers[0].id)}>
+        {props.questions.answers[0].answer}
+      </button>
+      <button onClick={() => props.tog(props.questions.answers[1].id)}>
+        {props.questions.answers[1].answer}
+      </button>
+      <button onClick={() => props.tog(props.questions.answers[2].id)}>
+        {props.questions.answers[2].answer}
+      </button>
+      <button onClick={() => props.tog(props.questions.answers[3].id)}>
+        {props.questions.answers[3].answer}
+      </button>
       <hr></hr>
     </div>
   );
