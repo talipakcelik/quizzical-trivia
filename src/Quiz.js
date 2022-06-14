@@ -1,54 +1,43 @@
 import React from "react";
 
-export default function Quiz(props) {
-  // let qArray = [...props.questions.incorrect_answers];
+export default function Quiz({ questions, answers, id, tog }) {
+  function stil(numb) {
+    return {
+      backgroundColor: answers[numb].isSelected ? "#D6DBF5" : "",
+      border: answers[numb].isSelected ? "none" : "",
+    };
+  }
 
-  // const [answers, setAnswers] = React.useState(qArray);
-  // const random = Math.floor(Math.random() * 4) + 0;
-
-  // qArray.splice(random, 0, props.questions.correct_answer);
-
-  console.log(props);
-
-  const q = {};
   return (
     <div className="quiz">
-      <h2>{props.questions}</h2>
+      <h2>{questions}</h2>
       <div
         className="answer"
-        style={{
-          backgroundColor: props.answers[0].isSelected ? "#D6DBF5" : "",
-        }}
-        onClick={() => props.tog(props.id, props.answers[0].id)}
+        style={stil(0)}
+        onClick={() => tog(id, answers[0].id)}
       >
-        {props.answers[0].answer}
+        {answers[0].answer}
       </div>
       <div
         className="answer"
-        style={{
-          backgroundColor: props.answers[1].isSelected ? "#D6DBF5" : "",
-        }}
-        onClick={() => props.tog(props.id, props.answers[1].id)}
+        style={stil(1)}
+        onClick={() => tog(id, answers[1].id)}
       >
-        {props.answers[1].answer}
+        {answers[1].answer}
       </div>
       <div
         className="answer"
-        style={{
-          backgroundColor: props.answers[2].isSelected ? "#D6DBF5" : "",
-        }}
-        onClick={() => props.tog(props.id, props.answers[2].id)}
+        style={stil(2)}
+        onClick={() => tog(id, answers[2].id)}
       >
-        {props.answers[2].answer}
+        {answers[2].answer}
       </div>
       <div
         className="answer"
-        style={{
-          backgroundColor: props.answers[3].isSelected ? "#D6DBF5" : "",
-        }}
-        onClick={() => props.tog(props.id, props.answers[3].id)}
+        style={stil(3)}
+        onClick={() => tog(id, answers[3].id)}
       >
-        {props.answers[3].answer}
+        {answers[3].answer}
       </div>
       <hr></hr>
     </div>
