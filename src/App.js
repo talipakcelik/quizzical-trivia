@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 export default function App() {
   const [start, setStart] = React.useState(false);
   const [quiz, setQuiz] = React.useState();
+  const [over, setOver] = React.useState(false);
 
   let quizElements;
 
@@ -20,10 +21,28 @@ export default function App() {
               answer: el,
               id: nanoid(),
               isSelected: false,
+              isCorrectAnswer: false,
             })),
         }));
 
-        return setQuiz(newArr);
+        const newArr2 = newArr.map((el) => {
+          return {
+            ...el,
+            answers: el.answers.map((el2) => {
+              return {
+                ...el2,
+                isCorrectAnswer: data.results.find(
+                  (el) => el.correct_answer === el2.answer
+                )
+                  ? true
+                  : false,
+              };
+            }),
+          };
+        });
+
+        console.log(data);
+        return setQuiz(newArr2);
       })
     );
   }, []);
@@ -55,10 +74,11 @@ export default function App() {
     quizElements = quiz.map((item, index) => (
       <Quiz
         key={index}
-        answers={item.answers}
         questions={item.question}
+        answers={item.answers}
         id={item.id}
         tog={toggle}
+        over={over}
       />
     ));
   }
@@ -66,7 +86,7 @@ export default function App() {
   console.log(quiz);
 
   function check() {
-    console.log();
+    setOver(true);
   }
 
   return (
@@ -77,7 +97,11 @@ export default function App() {
           <button onClick={() => setStart(true)}>Start quiz</button>
         </div>
       ) : (
-        quizElements.concat(<button onClick={check}>Check answers</button>)
+        quizElements.concat(
+          <button key={nanoid()} onClick={check}>
+            Check answers
+          </button>
+        )
       )}
     </main>
   );
