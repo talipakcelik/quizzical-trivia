@@ -14,11 +14,13 @@ export default function App() {
         const newArr = data.results.map((el) => ({
           id: nanoid(),
           question: el.question,
-          answers: [...el.incorrect_answers, el.correct_answer].map((el) => ({
-            answer: el,
-            id: nanoid(),
-            isSelected: false,
-          })),
+          answers: [...el.incorrect_answers, el.correct_answer]
+            .sort(() => Math.random() - 0.5)
+            .map((el) => ({
+              answer: el,
+              id: nanoid(),
+              isSelected: false,
+            })),
         }));
 
         return setQuiz(newArr);
@@ -63,6 +65,10 @@ export default function App() {
 
   console.log(quiz);
 
+  function check() {
+    console.log();
+  }
+
   return (
     <main>
       {!start ? (
@@ -71,7 +77,7 @@ export default function App() {
           <button onClick={() => setStart(true)}>Start quiz</button>
         </div>
       ) : (
-        quizElements
+        quizElements.concat(<button onClick={check}>Check answers</button>)
       )}
     </main>
   );
