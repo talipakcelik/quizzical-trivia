@@ -19,7 +19,7 @@ export default function Quiz(props) {
         style={{
           backgroundColor: props.answers[0].isSelected ? "#D6DBF5" : "",
         }}
-        onClick={() => props.tog(props.answers[0].id)}
+        onClick={() => props.tog(props.id, props.answers[0].id)}
       >
         {props.answers[0].answer}
       </div>
@@ -28,7 +28,7 @@ export default function Quiz(props) {
         style={{
           backgroundColor: props.answers[1].isSelected ? "#D6DBF5" : "",
         }}
-        onClick={() => props.tog(props.answers[1].id)}
+        onClick={() => props.tog(props.id, props.answers[1].id)}
       >
         {props.answers[1].answer}
       </div>
@@ -37,7 +37,7 @@ export default function Quiz(props) {
         style={{
           backgroundColor: props.answers[2].isSelected ? "#D6DBF5" : "",
         }}
-        onClick={() => props.tog(props.answers[2].id)}
+        onClick={() => props.tog(props.id, props.answers[2].id)}
       >
         {props.answers[2].answer}
       </div>
@@ -46,7 +46,7 @@ export default function Quiz(props) {
         style={{
           backgroundColor: props.answers[3].isSelected ? "#D6DBF5" : "",
         }}
-        onClick={() => props.tog(props.answers[3].id)}
+        onClick={() => props.tog(props.id, props.answers[3].id)}
       >
         {props.answers[3].answer}
       </div>
