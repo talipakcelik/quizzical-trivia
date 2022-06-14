@@ -1,11 +1,42 @@
 import React from "react";
 
-export default function Quiz({ questions, answers, id, tog }) {
+export default function Quiz({ questions, answers, id, tog, over }) {
   function stil(numb) {
-    return {
-      backgroundColor: answers[numb].isSelected ? "#D6DBF5" : "",
-      border: answers[numb].isSelected ? "none" : "",
-    };
+    if (over) {
+      if (!answers[numb].isSelected && !answers[numb].isCorrectAnswer) {
+        return {
+          backgroundColor: "transparent",
+          border: "1px solid #4D5B9E",
+          color: "#293264",
+        };
+      }
+      if (answers[numb].isCorrectAnswer && answers[numb].isSelected) {
+        return {
+          backgroundColor: "#94D7A2",
+          color: "#293264",
+          border: "none",
+        };
+      }
+      if (!answers[numb].isCorrectAnswer && answers[numb].isSelected) {
+        return {
+          backgroundColor: "#F8BCBC",
+          color: "#293264",
+          border: "none",
+        };
+      }
+      if (answers[numb].isCorrectAnswer) {
+        return {
+          backgroundColor: "#94D7A2",
+          color: "#293264",
+          border: "none",
+        };
+      }
+    } else {
+      return {
+        backgroundColor: answers[numb].isSelected ? "#D6DBF5" : "",
+        border: answers[numb].isSelected ? "none" : "",
+      };
+    }
   }
 
   return (
