@@ -8,10 +8,12 @@ export default function Quiz({ questions, answers, id, tog, over }) {
           backgroundColor: "transparent",
           border: "1px solid #4D5B9E",
           color: "#293264",
+          opacity: "50%",
         };
       }
       if (answers[numb].isCorrectAnswer && answers[numb].isSelected) {
         return {
+          // green
           backgroundColor: "#94D7A2",
           color: "#293264",
           border: "none",
@@ -19,13 +21,16 @@ export default function Quiz({ questions, answers, id, tog, over }) {
       }
       if (!answers[numb].isCorrectAnswer && answers[numb].isSelected) {
         return {
+          // pink
           backgroundColor: "#F8BCBC",
           color: "#293264",
           border: "none",
+          opacity: "50%",
         };
       }
       if (answers[numb].isCorrectAnswer) {
         return {
+          // green
           backgroundColor: "#94D7A2",
           color: "#293264",
           border: "none",
@@ -43,30 +48,30 @@ export default function Quiz({ questions, answers, id, tog, over }) {
     <div className="quiz">
       <h2>{questions}</h2>
       <div
-        className="answer"
+        className="answer disable-select"
         style={stil(0)}
-        onClick={() => tog(id, answers[0].id)}
+        onClick={over ? "" : () => tog(id, answers[0].id)}
       >
         {answers[0].answer}
       </div>
       <div
-        className="answer"
+        className="answer disable-select"
         style={stil(1)}
-        onClick={() => tog(id, answers[1].id)}
+        onClick={over ? "" : () => tog(id, answers[1].id)}
       >
         {answers[1].answer}
       </div>
       <div
-        className="answer"
+        className="answer disable-select"
         style={stil(2)}
-        onClick={() => tog(id, answers[2].id)}
+        onClick={over ? "" : () => tog(id, answers[2].id)}
       >
         {answers[2].answer}
       </div>
       <div
-        className="answer"
+        className="answer disable-select"
         style={stil(3)}
-        onClick={() => tog(id, answers[3].id)}
+        onClick={over ? "" : () => tog(id, answers[3].id)}
       >
         {answers[3].answer}
       </div>
