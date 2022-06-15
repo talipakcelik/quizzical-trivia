@@ -7,6 +7,7 @@ export default function App() {
   const [quiz, setQuiz] = React.useState();
   const [over, setOver] = React.useState(false);
   const [score, setScore] = React.useState();
+  const [again, setAgain] = React.useState(false);
 
   let quizElements;
 
@@ -45,7 +46,7 @@ export default function App() {
         return setQuiz(newArr2);
       })
     );
-  }, []);
+  }, [again]);
 
   function toggle(id, subId) {
     setQuiz((oldState) =>
@@ -86,6 +87,7 @@ export default function App() {
   function check() {
     setOver(true);
     countAnswers();
+    // setQuiz();
   }
 
   function countAnswers() {
@@ -97,6 +99,12 @@ export default function App() {
     setScore(
       `You scored ${numberOfCorrectAnswers}/${quiz.length} correct answers`
     );
+  }
+
+  function playAgain() {
+    setStart(false);
+    setOver(false);
+    setAgain((prevState) => !prevState);
   }
 
   return (
@@ -112,7 +120,7 @@ export default function App() {
         quizElements.concat(
           <div key={nanoid()} className="text-btn-container">
             <p className="score-text">{`${!over ? "" : score}`}</p>
-            <button onClick={check}>
+            <button onClick={over ? playAgain : check}>
               {`${!over ? "Check answers" : "Play again"}`}
             </button>
           </div>
