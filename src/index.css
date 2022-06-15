@@ -7,31 +7,56 @@
 html {
   font-size: 62.5%;
   font-family: "Karla", sans-serif;
+  position: relative;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f5f7fb;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 3rem 0rem 3rem;
 }
 
 h1 {
   color: #293264;
   text-align: center;
   padding: 2rem;
+  font-size: 3rem;
 }
 
 button {
   background-color: #4d5b9e;
   color: #f5f7fb;
-  width: 19rem;
-  height: 5rem;
   border: none;
   border-radius: 15px;
   font-family: "Inter", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
+  padding: 1rem 2rem;
+  font-weight: 500;
+
+  /**/
+}
+
+.start-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.start {
+  width: 19rem;
+  height: 5rem;
 }
 
 .answer {
@@ -40,36 +65,93 @@ button {
   /* height: 3rem; */
   /* display: contents; */
   border-radius: 8px;
-  border: 1px solid #293264;
+  border: 1px solid #4d5b9e;
   font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  text-align: center;
   cursor: pointer;
-  align-self: flex-start;
+  align-self: start;
   justify-self: start;
+  transition: background-color 0.3s ease-in-out;
+  color: #293264;
+  font-weight: 500;
 }
 
 .quiz {
   display: grid;
-  grid-template: repeat(3, auto) / repeat(4, auto);
-  gap: 1rem;
+  grid-template: auto auto auto/ auto auto auto auto;
+  row-gap: 2rem;
+  column-gap: 0.3rem;
 }
 
 h2 {
   grid-column: 1 / span 4;
   grid-row: 1/1;
   font-size: 1.6rem;
+  color: #293264;
+  font-weight: 700;
 }
 
 hr {
   grid-column: 1 / -1;
   grid-row: 3/4;
   color: #dbdef0;
-  /* border-top: 2rem; */
+  opacity: 50%;
 }
-main {
+
+.text-btn-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
+}
+
+.score-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #293264;
+}
+
+.blob-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.blob-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+img {
+  display: block;
+}
+
+ion-icon {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  color: #293264;
+  transform: rotate(45deg);
+  /* padding: 1rem; */
+  margin: 0 0 1rem 1rem;
+}
+
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ion-icon:hover {
+  color: #293264;
+  transition: all 0.3s ease-out;
+  filter: invert(42%) sepia(91%) saturate(918%) hue-rotate(346deg)
+    brightness(93%) contrast(98%);
+  transition: all 5s ease-in-out;
 }
