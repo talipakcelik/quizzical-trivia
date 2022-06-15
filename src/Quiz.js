@@ -50,28 +50,28 @@ export default function Quiz({ questions, answers, id, tog, over }) {
       <div
         className="answer disable-select"
         style={stil(0)}
-        onClick={over ? "" : () => tog(id, answers[0].id)}
+        onClick={over ? null : () => tog(id, answers[0].id)}
       >
         {answers[0].answer}
       </div>
       <div
         className="answer disable-select"
         style={stil(1)}
-        onClick={over ? "" : () => tog(id, answers[1].id)}
+        onClick={over ? null : () => tog(id, answers[1].id)}
       >
         {answers[1].answer}
       </div>
       <div
         className="answer disable-select"
         style={stil(2)}
-        onClick={over ? "" : () => tog(id, answers[2].id)}
+        onClick={over ? null : () => tog(id, answers[2].id)}
       >
         {answers[2].answer}
       </div>
       <div
         className="answer disable-select"
         style={stil(3)}
-        onClick={over ? "" : () => tog(id, answers[3].id)}
+        onClick={over ? null : () => tog(id, answers[3].id)}
       >
         {answers[3].answer}
       </div>
