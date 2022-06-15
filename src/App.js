@@ -6,6 +6,7 @@ export default function App() {
   const [start, setStart] = React.useState(false);
   const [quiz, setQuiz] = React.useState();
   const [over, setOver] = React.useState(false);
+  const [score, setScore] = React.useState();
 
   let quizElements;
 
@@ -41,7 +42,6 @@ export default function App() {
           };
         });
 
-        console.log(data);
         return setQuiz(newArr2);
       })
     );
@@ -83,10 +83,20 @@ export default function App() {
     ));
   }
 
-  console.log(quiz);
-
   function check() {
     setOver(true);
+    countAnswers();
+  }
+
+  function countAnswers() {
+    let numberOfCorrectAnswers = quiz.filter((el) =>
+      el.answers.find((el) => {
+        return el.isSelected && el.isCorrectAnswer;
+      })
+    ).length;
+    setScore(
+      `You scored ${numberOfCorrectAnswers}/${quiz.length} correct answers`
+    );
   }
 
   return (
@@ -94,13 +104,18 @@ export default function App() {
       {!start ? (
         <div className="start-container">
           <h1>Quizzical</h1>
-          <button onClick={() => setStart(true)}>Start quiz</button>
+          <button className="start" onClick={() => setStart(true)}>
+            Start quiz
+          </button>
         </div>
       ) : (
         quizElements.concat(
-          <button key={nanoid()} onClick={check}>
-            Check answers
-          </button>
+          <div key={nanoid()} className="text-btn-container">
+            <p className="score-text">{`${!over ? "" : score}`}</p>
+            <button onClick={check}>
+              {`${!over ? "Check answers" : "Play again"}`}
+            </button>
+          </div>
         )
       )}
     </main>
