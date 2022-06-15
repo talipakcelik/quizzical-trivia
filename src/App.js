@@ -126,6 +126,15 @@ export default function App() {
           </div>
         )
       )}
+      <img className="blob-1" src={`${process.env.PUBLIC_URL}/blob1.svg`}></img>
+      <img className="blob-2" src={`${process.env.PUBLIC_URL}/blob2.svg`}></img>
+      <a
+        href="https://github.com/talipakcelik/quizzical-trivia"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ion-icon class="github-icon" name="logo-github"></ion-icon>
+      </a>
     </main>
   );
 }
